@@ -21,7 +21,7 @@ Easy Work Log is a lightweight Windows application that automatically runs at a 
 ## Key Features
 
 - Automatic launch and shutdown via Windows Task Scheduler (17:00/18:00)
-- Web-based template page (Flask): work log input & one-click submission
+- Web-based template page (Streamlit): work log input & one-click submission
 - Local LLM for automatic work log generation
 - Google Drive API integration: automatic creation and saving of Google Docs
 - Logging and retry logic for error handling
@@ -34,16 +34,20 @@ Easy Work Log is a lightweight Windows application that automatically runs at a 
 1. **Install Python 3.10+ and create a venv**
 2. **Install required packages**
    ```bash
-   pip install flask google-auth google-api-python-client
+   pip install streamlit google-auth google-api-python-client
    ```
 3. **Install llama.cpp (or Ollama) and prepare a model (EXAONE-3.5-2.4B-Instruct)**
 4. **Prepare Google API credentials (`credential.json`) and complete OAuth2 authentication**
 5. **Register app launch/exit schedule with Windows Task Scheduler**
-6. **Run the app**
+6. **Run the venv**
+   ```bash
+   .\venv\Scripts\activate
+   ```
+7. **Run the app**
    ```bash
    python app.py
    ```
-7. **Access the work log page in your browser (default: http://localhost:5959)**
+8. **Access the work log page in your browser (default: http://localhost:5959)**
 
 ---
 
@@ -68,7 +72,7 @@ Easy-Work-Log/
 
 ## Tech Stack
 - Python 3.10+
-- Flask
+- Streamlit
 - llama.cpp (or Ollama)
 - Google API (Drive, Docs)
 - Windows Task Scheduler
@@ -107,7 +111,7 @@ Easy Work Log는 매일 정해진 시각에 자동으로 실행되어 최소한�
 ## 주요 기능
 
 - Windows Task Scheduler를 통한 자동 실행/종료 (17:00/18:00)
-- Flask 기반 웹 템플릿 페이지(업무일지 입력, 작성 버튼)
+- Streamlit 기반 업무일지 입력 페이지(입력 폼, 작성 버튼)
 - 로컬 LLM 으로 업무일지 자동 가공
 - Google Drive API를 통한 Google Docs 문서 자동 생성 및 저장
 - 오류/예외 발생 시 로깅 및 재시도
@@ -120,16 +124,20 @@ Easy Work Log는 매일 정해진 시각에 자동으로 실행되어 최소한�
 1. **Python 3.10+ 및 venv 가상환경 설치**
 2. **필수 패키지 설치**
    ```bash
-   pip install flask google-auth google-api-python-client
+   pip install streamlit google-auth google-api-python-client
    ```
 3. **llama.cpp(또는 Ollama) 설치 및 모델 (EXAONE-3.5-2.4B-Instruct) 준비**
 4. **Google API 자격증명(credential.json) 준비 및 OAuth2 인증**
 5. **Windows Task Scheduler에 앱 실행/종료 스케줄 등록**
-6. **앱 실행**
+6. **가상환경 실행**
    ```bash
-   python app.py
+   .\venv\Scripts\activate
    ```
-7. **웹 브라우저에서 업무일지 작성(기본: http://localhost:5959)**
+7. **앱 실행**
+   ```bash
+   streamlit run app.py
+   ```
+8. **웹 브라우저에서 업무일지 작성(기본: http://localhost:5959)**
 
 ---
 

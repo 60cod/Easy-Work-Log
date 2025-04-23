@@ -2,13 +2,13 @@
 
 ## 1. 환경 준비
 - [ ] Python 3.10+ 및 venv 가상환경 생성
-- [ ] Flask, google-auth, google-api-python-client 설치
+- [ ] Streamlit, google-auth, google-api-python-client 설치
 - [ ] llama.cpp 또는 Ollama 설치 및 테스트
 
-## 2. 템플릿 웹 페이지 개발
-- [ ] Flask 프로젝트 구조 생성
-- [ ] `templates/log_template.html` 작성 (업무일지 입력 폼, 작성 버튼)
-- [ ] 버튼 클릭 시 AJAX로 `/generate` 엔드포인트 호출 구현
+## 2. 업무일지 입력 UI 개발
+- [ ] Streamlit 프로젝트 구조 생성
+- [ ] 업무일지 입력 폼, 템플릿 선택, 작성 버튼 UI 구현
+- [ ] 버튼 클릭 시 Streamlit 콜백 함수로 LLM/Google Drive 연동
 - [ ] 성공/실패 메시지 UI 구현
 
 ## 3. LLM 연동

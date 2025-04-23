@@ -16,7 +16,7 @@
 1. **자동 실행**  
    - 매일 17:00에 가상환경(venv) 활성화 후 애플리케이션 실행  
 2. **템플릿 페이지 오픈**  
-   - 로컬 웹 서버(Flask 또는 간단한 HTTP 서버)로 업무일지 템플릿 페이지 표시  
+   - Streamlit 앱으로 업무일지 입력 폼/템플릿 UI 제공  
 3. **사용자 인터랙션**  
    - “작성” 버튼 클릭 시 다음 단계로 진행  
 4. **LLM 호출 및 가공**  
@@ -69,7 +69,7 @@
 |----------------------|------------------------------------------------------------------|
 | Windows Task Scheduler | 매일 17:00/18:00 트리거 관리                                       |
 | Python 실행 스크립트     | 가상환경 활성화, Flask 서버 기동, 종료 타이머 설정                   |
-| Flask Server         | 업무일지 템플릿 HTML/CSS/JS 페이지 제공, 버튼 클릭 이벤트 처리        |
+| Streamlit App        | 업무일지 입력 폼, 템플릿 선택, 버튼 등 UI 제공 및 이벤트 처리        |
 | 로컬 LLM 인터페이스     | llama.cpp CLI 또는 Python 바인딩을 통한 프롬프트 전송·응답 수신        |
 | Google Drive 모듈      | `google-auth`, `google-api-python-client` 활용 문서 생성·편집 로직    |
 | 로깅 및 에러 핸들러     | 파일단위 로그, 예외 발생 시 재시도 또는 관리자 알림(콘솔 출력 등)      |
@@ -86,12 +86,11 @@
 2. **앱 초기화 (app.py)**  
    - 로그 초기화  
    - 백그라운드 스레드로 종료 타이머 설정 (18:00)  
-   - Flask 서버 실행 (localhost:5959)
-3. **템플릿 페이지 표시**  
-   - `templates/log_template.html` 로딩  
-   - “작성” 버튼 대기
+   - Streamlit 앱 실행 (localhost:8501)
+3. **입력 폼/템플릿 페이지 표시**  
+   - Streamlit UI에서 업무일지 입력, 템플릿 선택, 작성 버튼 제공
 4. **작성 버튼 클릭**  
-   - AJAX 요청: `/generate` 엔드포인트 호출
+   - Streamlit 내 콜백 함수로 처리
 5. **LLM 처리**  
    - 사용자 입력 + 기본 템플릿 → 프롬프트 파일 생성  
    - `subprocess.run(["llama_cpp", "-m", "model.bin", "-p", prompt.txt, "-o", output.txt])`  
@@ -110,8 +109,8 @@
 ## 6. 기술 스택
 
 - **언어**: Python 3.10+  
-- **웹 프레임워크**: Flask (경량)  
-- **LLM 구동**: llama.cpp 또는 Ollama, Python 바인딩  
+- **웹 프레임워크**: Streamlit  
+- **LLM**: llama.cpp (또는 Ollama), Python 바인딩  
 - **Google API**: `google-auth`, `google-api-python-client`  
 - **스케줄링**: Windows Task Scheduler  
 - **가상환경**: venv  
@@ -124,7 +123,7 @@
 | 단계               | 기간         | 주요 작업                                           |
 |------------------|------------|---------------------------------------------------|
 | 1. 환경 준비        | 1일          | venv 생성, Flask·Google API·llama.cpp 설치             |
-| 2. 템플릿 페이지 개발 | 1일          | HTML/CSS, 버튼 이벤트, Flask 라우팅 구현               |
+| 2. 템플릿 페이지 개발 | 1일          | Streamlit 기반 입력 폼/템플릿/버튼 UI 구현             |
 | 3. LLM 연동        | 1~2일        | 로컬 모델 테스트, 프롬프트–응답 파이프라인 완성          |
 | 4. Google Drive 연동 | 1~2일        | OAuth2, Docs/Drive API 기능 구현 및 테스트             |
 | 5. 스케줄러 설정    | 반나절        | Task Scheduler 작업 정의 스크립트 작성 및 검증          |
