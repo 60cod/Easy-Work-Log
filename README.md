@@ -14,7 +14,12 @@ Automatic Work Log Application
 
 ## Overview
 
-Easy Work Log is a lightweight Windows application that automatically runs at a scheduled time, allowing you to write work logs with minimal user input. It uses a secure local LLM to generate natural language summaries and saves them as Google Docs on your Google Drive.
+'Easy Work Log' is an application that automatically runs at a scheduled time, allowing you to write work logs with minimal user input. <br/>
+Text is polished using an LLM, which runs locally to prevent security risks. Finally, the result is saved as Google Docs on your Google Drive.
+
+
+### Web UI Design Preview
+<img src="resources/images/ui-design.png" alt="Web UI Design Preview" style="width:30%;"/>
 
 ---
 
@@ -104,7 +109,12 @@ Easy-Work-Log/
 
 ## 개요
 
-Easy Work Log는 매일 정해진 시각에 자동으로 실행되어 최소한의 사용자 입력으로 업무 일지를 작성할 수 있게 합니다. 보안 이슈 없는 로컬 LLM을 이용하여 자연스러운 문장으로 가공하고 Google Drive에 Docs 문서로 저장합니다.
+'Easy Work Log'는 매일 정해진 시각에 자동으로 실행되어 최소한의 사용자 입력으로 업무 일지를 작성할 수 있게 합니다. <br/>
+보안 이슈 없는 로컬 LLM을 이용하여 자연스러운 문장으로 가공하고 Google Drive에 Docs 문서로 저장합니다.
+
+
+### 웹 UI 디자인 미리보기
+<img src="resources/images/ui-design.png" alt="Web UI Design Preview" style="width:30%;"/>
 
 ---
 
