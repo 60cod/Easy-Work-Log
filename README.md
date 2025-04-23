@@ -1,7 +1,93 @@
 <!-- Language Selection Tabs -->
 <p align="right">
-  <a href="#readme-ko">한국어</a> | <a href="#readme-en">English</a>
+  <a href="#readme-en">English</a> | <a href="#readme-ko">한국어</a>
 </p>
+
+---
+
+<a id="readme-en"></a>
+# Easy Work Log
+
+Automatic Work Log Application
+
+---
+
+## Overview
+
+Easy Work Log is a lightweight Windows application that automatically runs at a scheduled time, allowing you to write work logs with minimal user input. It uses a secure local LLM to generate natural language summaries and saves them as Google Docs on your Google Drive.
+
+---
+
+## Key Features
+
+- Automatic launch and shutdown via Windows Task Scheduler (17:00/18:00)
+- Web-based template page (Flask): work log input & one-click submission
+- Local LLM for automatic work log generation
+- Google Drive API integration: automatic creation and saving of Google Docs
+- Logging and retry logic for error handling
+- Lightweight and easy installation
+
+---
+
+## Installation & Usage
+
+1. **Install Python 3.10+ and create a venv**
+2. **Install required packages**
+   ```bash
+   pip install flask google-auth google-api-python-client
+   ```
+3. **Install llama.cpp (or Ollama) and prepare a model (EXAONE-3.5-2.4B-Instruct)**
+4. **Prepare Google API credentials (`credential.json`) and complete OAuth2 authentication**
+5. **Register app launch/exit schedule with Windows Task Scheduler**
+6. **Run the app**
+   ```bash
+   python app.py
+   ```
+7. **Access the work log page in your browser (default: http://localhost:5959)**
+
+---
+
+## Example Folder Structure
+
+```
+Easy-Work-Log/
+├── app.py
+├── templates/
+│   └── log_template.html
+├── static/
+├── llama_cpp/ (or ollama/)
+├── credentials.json
+├── token.json
+├── config.yaml
+├── development-checklist.md
+├── application-design-docs.md
+└── README.md
+```
+
+---
+
+## Tech Stack
+- Python 3.10+
+- Flask
+- llama.cpp (or Ollama)
+- Google API (Drive, Docs)
+- Windows Task Scheduler
+
+---
+
+## Development & Operation Checklist
+- See [development-checklist.md](./development-checklist.md)
+
+---
+
+## Reference & Extension Ideas
+- Multiple work log templates by type
+- Slack/Webhook notification integration
+- Log aggregation (DB or ELK)
+- Unit tests (pytest)
+- Work time tracking and visualization
+- Monthly performance summary reports
+
 
 ---
 
@@ -88,95 +174,3 @@ Easy-Work-Log/
 - 업무 시간 기록
 - 그래프 제공
 - 월별 업무 성과 요약
-
----
-
-## 문의
-- 추가 문의 또는 개선 제안은 이슈로 등록해 주세요.
-
----
-
-<a id="readme-en"></a>
-# Easy Work Log
-
-Automatic Work Log Application
-
----
-
-## Overview
-
-Easy Work Log is a lightweight Windows application that automatically runs at a scheduled time, allowing you to write work logs with minimal user input. It uses a secure local LLM to generate natural language summaries and saves them as Google Docs on your Google Drive.
-
----
-
-## Key Features
-
-- Automatic launch and shutdown via Windows Task Scheduler (17:00/18:00)
-- Web-based template page (Flask): work log input & one-click submission
-- Local LLM for automatic work log generation
-- Google Drive API integration: automatic creation and saving of Google Docs
-- Logging and retry logic for error handling
-- Lightweight and easy installation
-
----
-
-## Installation & Usage
-
-1. **Install Python 3.10+ and create a venv**
-2. **Install required packages**
-   ```bash
-   pip install flask google-auth google-api-python-client
-   ```
-3. **Install llama.cpp (or Ollama) and prepare a model (EXAONE-3.5-2.4B-Instruct)**
-4. **Prepare Google API credentials (`credential.json`) and complete OAuth2 authentication**
-5. **Register app launch/exit schedule with Windows Task Scheduler**
-6. **Run the app**
-   ```bash
-   python app.py
-   ```
-7. **Access the work log page in your browser (default: http://localhost:5959)**
-
----
-
-## Example Folder Structure
-
-```
-Easy-Work-Log/
-├── app.py
-├── templates/
-│   └── log_template.html
-├── static/
-├── llama_cpp/ (or ollama/)
-├── credentials.json
-├── token.json
-├── config.yaml
-├── development-checklist.md
-├── application-design-docs.md
-└── README.md
-```
-
----
-
-## Tech Stack
-- Python 3.10+
-- Flask
-- llama.cpp (or Ollama)
-- Google API (Drive, Docs)
-
----
-
-## Development & Operation Checklist
-- See [development-checklist.md](./development-checklist.md)
-
----
-
-## Reference & Extension Ideas
-- Multiple work log templates by type
-- Slack/Webhook notification integration
-- Log aggregation (DB or ELK)
-- Unit tests (pytest)
-
----
-
-## Contact
-- For questions or suggestions, please open an issue.
